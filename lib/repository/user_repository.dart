@@ -4,6 +4,7 @@ import 'package:flutter_http_app/model/user.dart';
 final dio = Dio(BaseOptions(baseUrl: "http://192.168.0.13:8080"));
 
 class UserRepository {
+  // 데이터 기다릴 때 Future박스라도 돌려주기 위해 Future를 붙여야함
   Future<List<User>> fetchUserList() async {
     Response<dynamic> response = await dio.get("/user");
     print(response.data);
@@ -17,7 +18,7 @@ class UserRepository {
     return userList;
   }
 
-  // 통신 테스트하기 (데이터 기다릴 때 Future박스라도 돌려주기 위해 Future를 붙여야함)
+  // 데이터 기다릴 때 Future박스라도 돌려주기 위해 Future를 붙여야함
   Future<User> fetchUser(int id) async {
     Response<dynamic> response = await dio.get("/user/$id");
     print(response.data);

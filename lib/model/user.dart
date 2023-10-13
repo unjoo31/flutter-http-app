@@ -7,6 +7,7 @@ class User {
 
   User({this.id, this.username, this.password, this.email});
 
+  // 통신으로 데이터 받을 때(Map -> Object)
   User.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     username = json["username"];
@@ -14,6 +15,7 @@ class User {
     email = json["email"];
   }
 
+  // 통신으로 데이터 보낼 때(Object -> Map)
   Map<String, dynamic> toJson() {
     return {
       "id": id,
